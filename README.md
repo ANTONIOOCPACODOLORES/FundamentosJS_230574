@@ -9,7 +9,7 @@ Previo a iniciar el desarrollo de software para web usando el framework de NodeJ
 |   No.|Descripcion|Estatus|
 |--|--|--|
 |1.|Metodología de evaluación| ✔️Finalizada|
-|2.|Inicialización del proyecto de Fundamentos de JS|Activo|
+|2.|Inicialización del proyecto de Fundamentos de JS|✔️ Activo|
 
 
 
