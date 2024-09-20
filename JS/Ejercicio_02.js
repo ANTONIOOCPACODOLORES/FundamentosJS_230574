@@ -114,38 +114,125 @@ const numero9=Symbol("5.0")
 
 
 //Pruebas comparativas
+//1
 console.log("¿Es 5 = 5.0?")
 if(numero1==numero2)
     console.log("Se comparò nùmero1 con nùmero2, determinando que tiene el mismo valor")
 else
 console.log("Se comparò numero1 con numero2, determinando que NO tienen el mismo valor.")
 
+//2
 console.log("¿Es 5 = \"5\"?")
 if(numero1==numero3)
     console.log("Se comparò nùmero1 con nùmero3, determinando que tiene el mismo valor")
 else
 console.log("Se comparò numero1 con numero3, determinando que NO tienen el mismo valor.")
 
+//3
 console.log("¿Es 5 === \"5.0\"?")
 if(numero1===numero3)//Estrictamente igual (equidad)= Mismo valor, mismo tipo de dato
     console.log("Se comparò nùmero1 con nùmero3, determinando que tiene el mismo valor")
 else
 console.log("Se comparò numero1 con numero3, determinando que tienen el mismo valor, pero No el mismo tipo de DATO.")
 
+//4
 console.log("¿Es 5 = \"5.0\"?")
 if(numero1==numero4)
     console.log("Se comparò nùmero1 con nùmero4, determinando que tiene el mismo valor")
 else
 console.log("Se comparò numero1 con numero4, determinando que NO tienen el mismo valor.")
 
+//5
 console.log("¿Es 5 === \"5.0\"?")
 if(numero1===numero4)//Estrictamente igual (equidad)= Mismo valor, mismo tipo de dato
     console.log("Se comparò nùmero1 con nùmero4, determinando que tiene el mismo valor")
 else
 console.log("Se comparò numero1 con numero4, determinando que tienen el mismo valor, pero No el mismo tipo de DATO.")
 
-console.log(`¿Es 5 = Symbol(5)?, antes de compararlos analizamos que el tipo de dato son: siendo numero1 del tipo: ${numero1} y numero5 del tipo: ${typeof(numero5)} `)
+//6
+console.log(`¿Es 5 === Symbol(5)?, antes de compararlos analizamos que el tipo de dato son: siendo numero1 del tipo: ${numero1} y numero5 del tipo: ${typeof(numero5)} `)
 if(numero1==numero5)
     console.log("Se comparò nùmero1 con nùmero5, determinando que tiene el mismo valor")
 else
 console.log("Se comparò numero1 con numero5, determinando que NO tienen el mismo valor.")
+
+//7
+console.log(`¿Es 5 === Symbol(5.0)?, antes de compararlos analizamos que el tipo de dato son: siendo numero1 del tipo: ${numero1} y numero7 del tipo: ${typeof(numero7)} `)
+if(numero1===numero7)
+    console.log("Se comparò nùmero1 con nùmero7, determinando que tiene el mismo valor")
+else
+console.log("Se comparò numero1 con numero7, determinando que tienen el mismo valor, pero No el mismo tipo de dato.")
+
+//8
+console.log(`¿Es 5 === Symbol("5")?, antes de compararlos analizamos que el tipo de dato son: siendo numero1 del tipo: ${numero1} y numero8 del tipo: ${typeof(numero8)} `)
+if(numero1==numero8)
+    console.log("Se comparò nùmero1 con nùmero8, determinando que tiene el mismo valor")
+else
+console.log("Se comparò numero1 con numero8, determinando que tienen el mismo valor, pero No el mismo tipo de dato.")
+
+//9
+console.log(`¿Es 5 === Symbol(5.0)?, antes de compararlos analizamos que el tipo de dato son: siendo numero1 del tipo: ${numero1} y numero9 del tipo: ${typeof(numero9)} `)
+if(numero1==numero9)
+    console.log("Se comparò nùmero1 con nùmero9, determinando que tiene el mismo valor")
+else
+console.log("Se comparò numero1 con numero9, determinando que tienen el mismo valor, pero No el mismo tipo de dato.")
+
+//10
+console.log(`¿Es Symbol(5) = Symbol(5)?, antes de compararlos analizamos que el tipo de dato son: siendo numero1 del tipo: ${typeof(numero5)} y numero5 del tipo: ${typeof(numero6)}`)
+if(numero5===numero6)
+    console.log("Se comparò nùmero5 con nùmero6, determinando que tiene el mismo valor")
+else
+console.log("Se comparò numero5 con numero6, determinando que tienen el mismo valor, y el mismo tipo de dato, es la condición de Symbol la que lo hace unico en la memoria.")
+
+
+//7. NULL
+
+console.warn("--- Tipo de Dato - NULL (Nulo o Vacío)");
+//El tipo de dato nulo se asigna cuando el sistema o el usuario saben de la variable pero prefieren dejarlo vacío, bajando su consentimiento, a diferencia de UNDEFINED que es un valor desconocido asignado por DEFAULT por JS.
+
+
+let nombreUsuario = null;
+let passUsuario = null;
+let generoUsuario = null;
+let estatusRelacionSentimental = null;
+let fecha_ultimoPost;
+
+
+//Supongamos que estamos programando una Red Social, tipo Facebook, en la que parte de la información se publicará en el perfil del usuario.
+
+//Si el usuario no ha iniciado sesión en el dispositivo móvil o en la aplicación web, puede explorar contenido de acceso publico. Y no existira información para mostrar.
+
+//En la HU (Historia de Usuario), que el usuario desea logearse debera ingresar su número telefónico o correo electrónico y una contraseña que debemos guardar en las variables previamente declaradas.
+
+//Supongamos que el usuario: Idai Vargas Galindo, con correo electrónico 230574@utxicotepec.edu.mx desea ingresar con su contraseña: pass1234
+
+nombreUsuario = "230574@utxicotepec.edu.mx";
+passUsuario = "pass1234";
+
+//En este momento de ejecución del sistema no sabemos su género, ni su estatus de relación sentimental.
+
+console.log(`El usuario: ${nombreUsuario} esta intentando logearse con una contraseña de: ${passUsuario}`);
+
+//Lo que prosigue es que el sistema cotejara los datos ingresados con la base de datos y en caso de que los datos sean correctos comenzará la sesión en la plataforma actualizando estos valores.
+
+//Dado que Idai es del Genero Femenino, y denota que su estatus de relación no ha sido capturado o lo mantiene en privado esto genera la actualización de los valores de las variables.
+generoUsuario = "F"
+estatusRelacionSentimental = null
+
+console.log(`El usuario: ${nombreUsuario}, se ha loeado existosamente, al tener acceso a su información de perfil podemos deducir que es del género ${generoUsuario} y que su estatus de realación es: ${estatusRelacionSentimental} y su ultima publicación la realizó el: ${fecha_ultimoPost}`);
+
+//comparando NULL vs UNDEFINED
+//Si bien UNDEFINED y NULL tienen el mismo valor, no tienen el mismo tipo de datos
+
+console.log("Comparación de la equidad entre Undefined y Null:")
+console.log(
+    (fecha_ultimoPost == estatusRelacionSentimental) ?
+    "Ambas variables tiene el mismo valor":
+    "Las variables no tiene el mismo valor"
+);
+console.log("Comparación de la identidad entre Undefined y Null:")
+console.log(
+    (fecha_ultimoPost === estatusRelacionSentimental) ?
+    "Ambas variables tiene el mismo valor y el mismo tipo de dato":
+    "Las variables tiene el mismo calor, pero no el mismo tipo de dato"
+);
