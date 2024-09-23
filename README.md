@@ -10,7 +10,7 @@ Previo a iniciar el desarrollo de software para web usando el framework de NodeJ
 |--|--|--|--|
 |1.|Metodología de evaluación| 1|✔️Finalizada|
 |2.|Inicialización del proyecto de Fundamentos de JS|8|✔️Finalizada|
-|3.|Ejercicio 01: Declaración de variables en JS|Pendiente|Activa|
+|3.|Ejercicio 01: Declaración de variables en JS|11|✔️Finalizada|
 
 
 
@@ -18,4 +18,4 @@ Previo a iniciar el desarrollo de software para web usando el framework de NodeJ
 Guadalupe Idai Vargas Galindo <br>
 Unidad 1<br>
 Aplicaciones Web Orientadas a Servicios <br>
-Septiembre 2024
+Septiembre 2024.
