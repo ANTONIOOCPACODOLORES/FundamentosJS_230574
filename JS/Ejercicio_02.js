@@ -236,3 +236,14 @@ console.log(
     "Ambas variables tiene el mismo valor y el mismo tipo de dato":
     "Las variables tiene el mismo calor, pero no el mismo tipo de dato"
 );
+
+// 8. FUNCTION (Funciones)
+console.warn("--- Tipo de Dato FUNCTION (Función")
+//Declaramos una funnción que nos permita recibir un parametro, en este casó el nombre de la persona a saludar, y le enviamos un saludo, esta función le asignamos una cosntante.
+const saludar = function(nombre){return `Hola, ${nombre}!`}
+
+//Invocamos la función declarada
+console.log(saludar('Idai'));
+
+//Y que tipo de dato tiene esta constante
+console.log(`El tipo de dato de la constante saludar es: ${typeof(saludar)}`)
