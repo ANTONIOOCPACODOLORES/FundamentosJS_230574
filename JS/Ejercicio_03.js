@@ -46,10 +46,11 @@ console.log(`Los datos del PRODUCTO son: \n
 console.log("%c2.- Objetos",  style_console);
 let Producto =
 {
+    ID: 3216,
     Nombre:"Tenis Deportivos",
     Marca:"Nike",
     Modelo:"Jordan `24",
-    precio:"3361.25",
+    Precio:"3361.25",
     Disponibilidad: false,
     Stock:0,
     SKU:"DZ5485-612",
@@ -90,15 +91,16 @@ let Producto2 =
 
 let Comprador ={
     Clave:455,
-    Noipo:"Frecuente",
-    cmbre:"idai",
+    Tipo:"Frecuente",
+    Nombre:"idai",
     Apellidos:"Vargas Galindo",
-    Torreo:"idaivg@gmail.com",
-    PaisOrigen:"México",
+    Correo:"idaivg@gmail.com",
+    PaisOrigen:"Mexico",
     saldoActual:14000.00
 }
 
 let Pedido ={
+    ID:5816,
     Producto_Clave:3312,
     Comprador_Clave:455,
     Cantidad:2,
@@ -162,4 +164,112 @@ else
  console.log("Después de la modificación...")
  console.table(Pedido);
 
- 
+ //
+ console.log("%c7.- Mètodos para controlar la mutabilidad de los objetos, congelaciòn (FREEZE)", style_console);
+ //Si deseamos no permitir que los objetos sean modificados ni en estructura, ni en valor, utilizaremos el mètodo FREEZE (congelar)
+ console.log(`La estructura actual del objeto COMPRADOR es: `)
+ console.table(Comprador) 
+ Object.freeze(Comprador)
+ //Intentamos agregar, eliminar o modificar los valores de sus propiedades
+ Comprador.fechaUltimaCompra = "05/09/2024 10:15:25"
+ delete Comprador.Tipo;
+ Comprador.Direcciòn = "Calle 16 de Septiembre #102, col. Manantiales, Huauchinango, Puebla, Mèxico";
+ console.log(`Verifciamos si se realizaron los cambios en el Objeto COMPRADOR:`)
+ console.table(Comprador)
+
+ console.log("%c8.- Mètodos para controlar la mutabilidad de los Objetos, sellado (SEAL)", style_console);
+ //Sin embargo, en el caso que deseamos poder modificar los valores de las propiedades del objeto, pero no su estructura, usaremos SEAL
+ console.log("Objeto antes de ser modificado: ")
+ console.table(Pedido)
+ //Sellamos el objeto
+ Object.seal(Pedido)
+ //Intentamos modificar su estructura
+ Pedido['FechaPedido'] = "25/09/2024 11:05:03"
+ delete Pedido['Cantidad']
+ console.log('Verificamos su se realizaron los cambios en el objeto PEDIDO: ')
+ console.table(Pedido)
+ //Ahora intentamos modificar el valor de las propiedades
+ Pedido.Cantidad = 5
+ console.log('Verificamos si se realizaron los cambios en el Objeto PEDIDO: ')
+ console.table(Pedido)
+
+ console.log("%c9.- Destructuraciòn de 2 o màs Objetos", style_console);
+
+ let {Precio: ProductoPrecio, Marca: ProductoMarca}=Producto
+ let {Correo: clienteCorreo, PaisOrigen: clientePais, saldoActual: clienteSaldo, Tipo: clienteTipo} = Comprador
+ // Transformar valores cuantitativos en cualitativos
+ if(ProductoPrecio>2000)
+    ProductoPrecio = "Caro"
+else
+ProductoPrecio= "Barato"
+
+if(clienteSaldo >0)
+    clienteSaldo= "A favor"
+else if(clienteSaldo<0)
+    clienteSaldo="En contra"
+else
+clienteSaldo="Sin deuda"
+//Transformar valores cualitativos en cuantitativos
+
+let clienteNievel;
+if(clienteTipo=="Premiun")
+    clienteNievel=1
+if (clienteTipo=="Freemiun")
+    clienteNievel=2
+if(clienteTipo=="No identificado")
+    clienteNievel=3
+
+//Clasificamos al cliente por su Paìs de Origen
+if(clientePais == "Mexico")
+    clientePais="Nacional"
+else
+clientePais="Extranjero"
+
+
+//OLE -Object Literal Enhacement
+
+let datosClientePromociones = {clienteCorreo, clientePais, clienteNievel, clienteSaldo, ProductoMarca, ProductoPrecio}
+
+//El nuevo objeto que creamos serìa un ejemplo de la informaciòn que enviariamos al àrea de Marketing para la difusiòn de promociones
+console.log("Los daros del cliente y sus hàbitos de compra son: ")
+console.table(datosClientePromociones)
+
+console.log("%c10.- Uniòn de objetos usando el mètodo de asignaciòn (ASSING)", style_console);
+
+console.log("imprimimos la estructura y valores del Objeto PRODUCTO")
+console.table(Producto);
+console.log("imprimimos la estructura y valores del Objeto PEDIDO")
+console.table(Pedido);
+//Suponiendo que el usuario ya los realizò el pago del pedido se convertira en una VENTA que requiere informaciòn de ambos objetos
+const Venta = Object.assign(Producto, Pedido);
+console.log("Consultamos este nuevo objeto VENTA")
+console.table(Venta);
+ //Para que se vean ambos Id se debe agregar otra funcion 
+
+
+
+
+
+
+
+
+
+
+
+
+ /*let persona={nombre: "Idai", edad: "24", email: "ida@gmail.com"};
+ persona.edad= 24;
+ console.log(persona);
+ console.log("Objeto antes de ser modificado: ")
+ console.table(persona)
+ //Sellamos el objeto
+ Object(persona)
+ //Intentamos modificar su estructura
+ persona['Fecha'] = "26/09/2024 11:05:03"
+ delete persona['email']
+ console.log('Verificamos su se realizaron los cambios en el objeto Persona: ')
+ console.table(persona)
+ //Ahora intentamos modificar el valor de las propiedades
+ persona.email = "Isai@outlook.com"
+ console.log('Verificamos si se realizaron los cambios en el Objeto Persona: ')
+ console.table(persona)*/
